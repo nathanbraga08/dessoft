@@ -6,7 +6,7 @@ init(autoreset=True)
 while True:
 
     qletras = 5 
-    filtandopalavras = palavrassolucao.filtra(qletras) 
+    filtandopalavras = palavrassolucao.filtra2(qletras) 
     inicializa = palavrassolucao.inicializa(filtandopalavras)
     tentativas = inicializa['tentativas']
     especuladas = inicializa['especuladas']

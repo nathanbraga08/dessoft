@@ -1,11 +1,23 @@
+
 from random import choice
 from colorama import init, Fore, Back, Style
 global palavras
 
-def filtra(numeroletras):
+def filtra2(numeroletras):
     nlist = []
     for palavra in palavras:
         if len(palavra) == int(numeroletras):
+            nlist.append(palavra.lower())
+    return nlist
+
+def filtra(palavras, numeroletras):
+    nlist = []
+    palavras_normalizada = []
+    for palavra in palavras:
+        palavra_normalizada = palavra.lower()
+        palavras_normalizada.append(palavra_normalizada)
+    for palavra in palavras_normalizada:
+        if len(palavra) == int(numeroletras) and palavra not in nlist:
             nlist.append(palavra.lower())
     return nlist
 
