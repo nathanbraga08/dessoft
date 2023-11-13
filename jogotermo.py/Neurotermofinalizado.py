@@ -12,7 +12,7 @@ while True:
     especuladas = inicializa['especuladas']
     
     print('')
-    print('Bem Vindo ao neurotermo')
+    print('Bem Vindo ao Neurotermo')
     print('')
     print('Os comandos são: desisto' + '\n')
     print(' ' + 'Regras:'+'\n')
@@ -101,3 +101,9 @@ while True:
     else:
         print('Ate mais!')
         break
+
+
+
+
+
+    
