@@ -1,19 +1,28 @@
+'''def pontuacao(tentativa):
+    if tentativa <= 2:
+        pontuacao = 5
+    if tentativa == 0:
+        pontuacao = 0
+    if tentativa > 2:
+        pontuacao == 10'''
+
 import palavrassolucao
 from random import choice
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 
+print('')
+print('Bem Vindo ao termo')
+print('')
+
 while True:
 
     qletras = 5 
-    filtandopalavras = palavrassolucao.filtra2(qletras) 
+    filtandopalavras = palavrassolucao.filtra(qletras) 
     inicializa = palavrassolucao.inicializa(filtandopalavras)
     tentativas = inicializa['tentativas']
     especuladas = inicializa['especuladas']
     
-    print('')
-    print('Bem Vindo ao termo')
-    print('')
     print('Os comandos são: desisto' + '\n')
     print(' ' + 'Regras:'+'\n')
     print('  - Você tem '+ Fore.RED + f'{tentativas}' + Fore.RESET + ' tentativas para acertar uma palavra aleatória de '+f'{qletras}' + ' letras.')
@@ -50,19 +59,18 @@ while True:
             
     while True:
         if tentativas == 0:
-            print('Você infezlimente perdeu! \n A resposta era: ' + sorteada)
-            print('Sua pontuação final foi 0 pontos')
+            print('Você perdeu! \nA resposta era: ' + sorteada)
             break
-        print('Voce tem {0} tentativas.'.format(tentativas))
+        print('Voce tem {0} tentativas!'.format(tentativas))
         chute = input('Qual o seu palpite? ').strip().lower()
         if chute.lower() == 'desisto':
             break
         if len(chute) != int(qletras):
-            print('Somente palavras de 5 letras')
+            print('Somente palavras de {0} letras'.format(qletras))
         elif chute not in palavrassolucao.palavras:
             print('Palavra desconhecida.')
         elif chute in especuladas:
-            print('Palavra já escolhida.')
+            print('Palavra já escolhida!')
         else:
             especuladas.append(chute)
             for i in range(6):
@@ -70,34 +78,19 @@ while True:
                     termo(especuladas[i])
                 else:
                     termo('')
-            if chute == sorteada and tentativas == 5:
+            if chute == sorteada:
                 print('Você ganhou!')
-                print('Sua pontuação é de 10 pontos')
-                break
-            if chute == sorteada and tentativas == 4:
-                print('Você ganhou!')
-                print('Sua pontuação é de 8 pontos')
-                break
-            if chute == sorteada and tentativas == 3:
-                print('Você ganhou!')
-                print('Sua pontuação é de 6 pontos')
-                break
-            if chute == sorteada and tentativas == 2:
-                print('Você ganhou!')
-                print('Sua pontuação é de 4 pontos')
-                break
-            if chute == sorteada and tentativas == 1:
-                print('Você ganhou!')
-                print('Sua pontuação é de 2 pontos')
                 break
             tentativas -= 1
             
             
 
-    rejogar = input('Deseja jogar novamente? (sim/nao): ').strip().lower()
+    rejogar = input('Deseja jogar novamente? (s/n): ').strip().lower()
 
-    if rejogar == 'sim':
+    if rejogar in ['s','sim','claro']:
         continue
     else:
         print('Ate mais!')
         break
+    
+
