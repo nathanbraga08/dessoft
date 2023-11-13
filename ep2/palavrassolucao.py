@@ -1,4 +1,3 @@
-
 from random import choice
 from colorama import init, Fore, Back, Style
 global palavras
